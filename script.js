@@ -1,8 +1,8 @@
 const CHANNEL_ID = 'UC7utmH7ukZCKB_jpgXxN0Pg';
 
 async function cargarUltimoVideo() {
-  const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}';
-  const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}';
+  const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+  const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
   try {
     const response = await fetch(proxyUrl);
@@ -13,7 +13,7 @@ async function cargarUltimoVideo() {
       const videoId = new URL(videoUrl).searchParams.get('v');
 
       if (videoId) {
-        document.getElementById('yt-player').src = 'https://www.youtube.com/embed/${videoId}';
+        document.getElementById('yt-player').src = `https://www.youtube.com/embed/${videoId}`;
       }
     } else {
       console.error('No se encontraron videos.');

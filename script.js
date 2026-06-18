@@ -22,5 +22,6 @@ async function cargarUltimoVideo() {
     }
 }
 
-// Ejecutar la función en cuanto cargue la página
-window.onload = cargarUltimoVideo;
+document.addEventListener('DOMContentLoaded', () => {
+    cargarUltimoVideo();
+});

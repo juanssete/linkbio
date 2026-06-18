@@ -175,14 +175,14 @@ body {
     animation: shinePass 8s infinite;
 }
 
-/* Desfase de animación para que no brillen todos al mismo tiempo */
-.action-links a:nth-child(2) .laser-shine { animation-delay: 1s; }
-.action-links a:nth-child(3) .laser-shine { animation-delay: 2s; }
-.action-links a:nth-child(4) .laser-shine { animation-delay: 3s; }
-.action-links a:nth-child(5) .laser-shine { animation-delay: 4s; }
-.action-links a:nth-child(6) .laser-shine { animation-delay: 5s; }
-.action-links a:nth-child(7) .laser-shine { animation-delay: 6s; }
-.action-links a:nth-child(8) .laser-shine { animation-delay: 7s; }
+/* --- DESFASE DE ANIMACIÓN INMUNE A COMENTARIOS O CAMBIOS --- */
+.twitch .laser-shine { animation-delay: 0s; }
+.instagram .laser-shine { animation-delay: 1s; }
+.tiktok .laser-shine { animation-delay: 2s; }
+.whatsapp .laser-shine { animation-delay: 3s; }
+.facebook .laser-shine { animation-delay: 4s; }
+.kick .laser-shine { animation-delay: 5s; }
+.correo .laser-shine { animation-delay: 6s; }
 
 @keyframes shinePass {
     0% { left: -100%; }

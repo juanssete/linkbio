@@ -1,7 +1,7 @@
 const CHANNEL_ID = 'UC7utmH7ukZCKB_jpgXxN0Pg';
 
 async function cargarUltimoVideo() {
-  const rssUrl = https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID};
+  const rssUrl = https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}:
   const proxyUrl = https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)};
 
   try {

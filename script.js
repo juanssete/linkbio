@@ -1,27 +1,29 @@
-// CONFIGURACIÓN
-const CHANNEL_ID = 'UC7utmH7ukZCKB_jpgXxN0Pg'; // El ID real de Juansete
-const API_KEY = 'AIzaSyATAerogDkYtoSZBYWy340BT6ZEzXFcsd4'; // Ahora te explico cómo obtenerla
+const CHANNEL_ID = 'UC7utmH7ukZCKB_jpgXxN0Pg';
 
-// Función para obtener el último video
 async function cargarUltimoVideo() {
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1&type=video`;
+  const rssUrl = https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID};
+  const proxyUrl = https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)};
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        
-        if (data.items && data.items.length > 0) {
-            const videoId = data.items[0].id.videoId;
-            // Insertamos el ID del video automáticamente en el iframe
-           document.getElementById('yt-player').src = `https://www.youtube.com/embed/${videoId}`;
-        } else {
-            console.error('No se encontraron videos en el canal.');
-        }
-    } catch (error) {
-        console.error('Error al conectar con la API de YouTube:', error);
+  try {
+    const response = await fetch(proxyUrl);
+    const data = await response.json();
+
+    if (data.status === 'ok' && data.items && data.items.length > 0) {
+      const videoUrl = data.items[0].link;
+      const videoId = new URL(videoUrl).searchParams.get('v');
+
+      if (videoId) {
+        document.getElementById('yt-player').src =
+          https://www.youtube.com/embed/${videoId};
+      }
+    } else {
+      console.error('No se encontraron videos.');
     }
+  } catch (error) {
+    console.error('Error al cargar el video:', error);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    cargarUltimoVideo();
+  cargarUltimoVideo();
 });

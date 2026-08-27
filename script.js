@@ -1,6 +1,6 @@
 const CHANNEL_ID = 'UC7utmH7ukZCKB_jpgXxN0Pg';
 // Video por defecto de respaldo si falla todo
-const FALLBACK_VIDEO_ID = '5qap5aO4i9A'; 
+const FALLBACK_VIDEO_ID = '_qqJd1SHDz4';
 
 async function cargarUltimoVideo() {
     const iframe = document.getElementById('yt-player');

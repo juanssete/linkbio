@@ -238,10 +238,15 @@ body {
     height: 22px;
     object-fit: contain;
     vertical-align: middle;
-    filter: invert(80%) sepia(85%) saturate(1200%) hue-rotate(350deg) brightness(105%) contrast(105%);
+    /* 1. Convierte la imagen a blanco puro */
+    filter: brightness(0) invert(1);
+    /* 2. Aplica la sombra dorada exacta de FontAwesome */
+    drop-shadow: 0 0 0 #ffcc00;
     transition: filter 0.3s ease;
 }
 
+/* Al pasar el mouse, quita la sombra para que quede blanco puro */
 .btn-animate:hover .btn-icon-custom {
+    drop-shadow: none;
     filter: brightness(0) invert(1);
 }

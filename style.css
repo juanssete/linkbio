@@ -175,14 +175,14 @@ body {
     animation: shinePass 8s infinite;
 }
 
-/* --- DESFASE DE ANIMACIÓN INMUNE A COMENTARIOS O CAMBIOS --- */
-.twitch .laser-shine { animation-delay: 0s; }
-.instagram .laser-shine { animation-delay: 1s; }
-.tiktok .laser-shine { animation-delay: 2s; }
-.whatsapp .laser-shine { animation-delay: 3s; }
-.facebook .laser-shine { animation-delay: 4s; }
-.kick .laser-shine { animation-delay: 5s; }
-.itero .laser-shine { animation-delay: 6s; }
+/* --- DESFASE DE ANIMACIÓN DEL BRILLO LÁSER --- */
+.itero .laser-shine { animation-delay: 0s; }
+.twitch .laser-shine { animation-delay: 1s; }
+.instagram .laser-shine { animation-delay: 2s; }
+.tiktok .laser-shine { animation-delay: 3s; }
+.whatsapp .laser-shine { animation-delay: 4s; }
+.facebook .laser-shine { animation-delay: 5s; }
+.kick .laser-shine { animation-delay: 6s; }
 .correo .laser-shine { animation-delay: 7s; }
 
 @keyframes shinePass {

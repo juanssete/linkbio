@@ -238,4 +238,10 @@ body {
     height: 22px;
     object-fit: contain;
     vertical-align: middle;
+    filter: invert(80%) sepia(85%) saturate(1200%) hue-rotate(350deg) brightness(105%) contrast(105%);
+    transition: filter 0.3s ease;
+}
+
+.btn-animate:hover .btn-icon-custom {
+    filter: brightness(0) invert(1);
 }

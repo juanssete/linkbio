@@ -232,21 +232,16 @@ body {
     height: 100%;
 }
 
-/* --- ESTILOS PARA EL BOTÓN Y LOGO DE ITERO --- */
-.btn-icon-custom {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
+/* --- ICONO SVG DE ITERO (DORADO NEÓN EXACTO) --- */
+.itero-icon {
+    width: 20px;
+    height: 20px;
+    color: #ffcc00; /* Mismo amarillo/dorado que Kick, Twitch, etc. */
     vertical-align: middle;
-    /* 1. Convierte la imagen a blanco puro */
-    filter: brightness(0) invert(1);
-    /* 2. Aplica la sombra dorada exacta de FontAwesome */
-    drop-shadow: 0 0 0 #ffcc00;
-    transition: filter 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-/* Al pasar el mouse, quita la sombra para que quede blanco puro */
-.btn-animate:hover .btn-icon-custom {
-    drop-shadow: none;
-    filter: brightness(0) invert(1);
+/* Al pasar el mouse cambia a blanco puro */
+.btn-animate:hover .itero-icon {
+    color: #ffffff;
 }

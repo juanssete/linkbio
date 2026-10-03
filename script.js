@@ -154,10 +154,10 @@ async function cargarContadorVisitas() {
         if (data && data.value) {
             visitCountEl.textContent = data.value.toLocaleString();
         } else {
-            visitCountEl.textContent = "1"; // Valor inicial si falla
+            visitCountEl.textContent = "0"; // Valor inicial si falla
         }
     } catch (error) {
-        visitCountEl.textContent = "1";
+        visitCountEl.textContent = "Error";
     }
 }
 

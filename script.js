@@ -148,13 +148,12 @@ async function cargarContadorVisitas() {
     if (!visitCountEl) return;
 
     try {
-        // Usa CountAPI para contar y acumular visitas de la página
         const response = await fetch("https://api.countapi.xyz/hit/juanssete-linktree/visits");
         const data = await response.json();
         if (data && data.value) {
             visitCountEl.textContent = data.value.toLocaleString();
         } else {
-            visitCountEl.textContent = "0"; // Valor inicial si falla
+            visitCountEl.textContent = "0";
         }
     } catch (error) {
         visitCountEl.textContent = "Error";

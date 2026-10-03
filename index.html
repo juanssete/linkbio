@@ -90,8 +90,15 @@
         </div>
     </div>
 
-    <!-- REPRODUCTOR DE MÚSICA FLOTANTE (URL MP3 DIRECTO) -->
-    <div class="music-player-card">
+    <!-- REPRODUCTOR DE MÚSICA FLOTANTE (COLLAPSIBLE) -->
+    <div class="music-player-card collapsed" id="music-player">
+        
+        <!-- PESTAÑA SUPERIOR CON NOTA Y FLECHA DESPLEGABLE -->
+        <button class="toggle-player-btn" id="toggle-player-btn" aria-label="Abrir reproductor">
+            <i class="fas fa-music"></i>
+            <i class="fas fa-chevron-up toggle-icon" id="toggle-icon"></i>
+        </button>
+
         <audio id="bg-music" src="cancion.mp3" preload="metadata"></audio>
 
         <div class="music-left">

@@ -15,16 +15,16 @@ body {
     align-items: center;
     overflow-y: auto;
     position: relative;
+    padding: 30px 15px 120px 15px; /* Espacio inferior para no tapar contenido con el reproductor flotante */
 }
 
 /* --- FONDO EN MOVIMIENTO CONSTANTE --- */
 .bg-energy {
-    position: absolute;
+    position: fixed;
     width: 200%;
     height: 200%;
     top: -50%;
     left: -50%;
-    /* Simula líneas de energía fluidas azul cian */
     background-image: 
         radial-gradient(2px 2px at 40px 60px, #00d0ff, transparent),
         radial-gradient(3px 3px at 20px 150px, #0055ff, transparent),
@@ -34,6 +34,7 @@ body {
     animation: energyFlow 12s linear infinite;
     opacity: 0.5;
     z-index: 0;
+    pointer-events: none;
 }
 
 @keyframes energyFlow {
@@ -47,14 +48,15 @@ body {
     z-index: 1;
     background: rgba(4, 8, 16, 0.85);
     backdrop-filter: blur(8px);
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 420px;
     padding: 40px 25px;
     border: 2px solid #00d0ff;
     box-shadow: 0 0 35px rgba(0, 208, 255, 0.2), inset 0 0 20px rgba(0, 85, 255, 0.2);
     border-radius: 8px;
     text-align: center;
-    animation: cardFloat 4s ease-in-out infinite; /* La tarjeta flota suavemente */
+    animation: cardFloat 4s ease-in-out infinite;
+    margin: 0 auto;
 }
 
 @keyframes cardFloat {
@@ -62,7 +64,7 @@ body {
     50% { transform: translateY(-8px); }
 }
 
-/* --- ANIMACIÓN DEL AVATAR (ANILLOS GIRATORIOS) --- */
+/* --- ANIMACIÓN DEL AVATAR --- */
 .avatar-container {
     position: relative;
     width: 120px;
@@ -99,7 +101,7 @@ body {
 .ring-2 {
     width: 120px;
     height: 120px;
-    border-left-color: #ffcc00; /* Toque dorado del overlay */
+    border-left-color: #ffcc00;
     border-right-color: transparent;
     animation: rotateRing 5s linear infinite reverse;
 }
@@ -111,7 +113,7 @@ body {
 
 /* --- TEXTO NEÓN --- */
 .neon-text {
-    font-family: 'Orbitron', sans-serif; /* Letra futurista/gaming */
+    font-family: 'Orbitron', sans-serif;
     font-size: 2.2rem;
     font-weight: 900;
     color: #ffffff;
@@ -129,80 +131,28 @@ body {
     padding: 3px 10px;
     border-radius: 3px;
     letter-spacing: 1px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
-/* --- BOTONES CON BRILLO LÁSER CONTINUO --- */
-.action-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 30px;
-}
-
-.btn-animate {
-    position: relative;
-    display: flex;
+/* --- ETIQUETA DE UBICACIÓN (COLOMBIA) --- */
+.location-tag {
+    display: inline-flex;
     align-items: center;
-    gap: 15px;
-    padding: 16px 20px;
-    background: linear-gradient(90deg, #050b14, #0a1526);
-    border: 1px solid rgba(0, 208, 255, 0.4);
-    border-radius: 4px;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
-    text-transform: uppercase;
-    overflow: hidden; /* Corta el brillo que se sale */
-    transition: all 0.3s ease;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #00d0ff;
+    margin-bottom: 25px;
+    background: rgba(0, 208, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 208, 255, 0.2);
 }
 
-.btn-animate i {
-    font-size: 1.3rem;
+.location-tag i {
     color: #ffcc00;
 }
 
-/* El reflejo láser que cruza el botón automáticamente */
-.laser-shine {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 208, 255, 0.4), transparent);
-    transform: skewX(-25deg);
-    animation: shinePass 8s infinite;
-}
-
-/* --- DESFASE DE ANIMACIÓN DEL BRILLO LÁSER --- */
-.itero .laser-shine { animation-delay: 0s; }
-.twitch .laser-shine { animation-delay: 1s; }
-.instagram .laser-shine { animation-delay: 2s; }
-.tiktok .laser-shine { animation-delay: 3s; }
-.whatsapp .laser-shine { animation-delay: 4s; }
-.facebook .laser-shine { animation-delay: 5s; }
-.kick .laser-shine { animation-delay: 6s; }
-.correo .laser-shine { animation-delay: 7s; }
-
-@keyframes shinePass {
-    0% { left: -100%; }
-    30%, 100% { left: 150%; }
-}
-
-/* Hover interactivo potente */
-.btn-animate:hover {
-    border-color: #00d0ff;
-    box-shadow: 0 0 20px rgba(0, 208, 255, 0.4);
-    transform: scale(1.03);
-    background: #0055ff;
-}
-
-.btn-animate:hover i {
-    color: #ffffff;
-}
-
-/* --- NUEVA SECCIÓN DEL VIDEO --- */
+/* --- SECCIÓN DEL VIDEO --- */
 .video-section {
     width: 100%;
     margin-bottom: 25px;
@@ -212,9 +162,8 @@ body {
 .video-container {
     width: 100%;
     position: relative;
-    padding-bottom: 56.25%; /* Relación de aspecto 16:9 perfecta */
+    padding-bottom: 56.25%;
     height: 0;
-    /* Doble marco de energía simulando el estilo de tu stream */
     border: 2px solid #00d0ff;
     outline: 1px solid #0044aa;
     outline-offset: -3px;
@@ -232,16 +181,312 @@ body {
     height: 100%;
 }
 
-/* --- ICONO SVG DE ITERO (DORADO NEÓN EXACTO) --- */
+/* --- CONTADOR DE VISITAS --- */
+.views-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px auto 0 auto;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 20px;
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.views-counter i {
+    color: #00d0ff;
+}
+
+.views-counter strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* --- BOTONES CON BRILLO LÁSER CONTINUO --- */
+.action-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.btn-animate {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    background: linear-gradient(90deg, #050b14, #0a1526);
+    border: 1px solid rgba(0, 208, 255, 0.4);
+    border-radius: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-animate i {
+    font-size: 1.3rem;
+    color: #ffcc00;
+}
+
+.laser-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 208, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    animation: shinePass 8s infinite;
+}
+
+/* DESFASE DE ANIMACIÓN DEL BRILLO LÁSER */
+.itero .laser-shine { animation-delay: 0s; }
+.twitch .laser-shine { animation-delay: 1s; }
+.instagram .laser-shine { animation-delay: 2s; }
+.tiktok .laser-shine { animation-delay: 3s; }
+.whatsapp .laser-shine { animation-delay: 4s; }
+.facebook .laser-shine { animation-delay: 5s; }
+.kick .laser-shine { animation-delay: 6s; }
+.correo .laser-shine { animation-delay: 7s; }
+
+@keyframes shinePass {
+    0% { left: -100%; }
+    30%, 100% { left: 150%; }
+}
+
+.btn-animate:hover {
+    border-color: #00d0ff;
+    box-shadow: 0 0 20px rgba(0, 208, 255, 0.4);
+    transform: scale(1.03);
+    background: #0055ff;
+}
+
+.btn-animate:hover i {
+    color: #ffffff;
+}
+
+/* ESTILOS ESPECÍFICOS BOTÓN TWITCH */
+.twitch-status-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    width: 100%;
+}
+
+.twitch-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.badge-status {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 900;
+    margin-left: auto;
+}
+
+.btn-animate.twitch.offline .badge-status {
+    background: #444;
+    color: #ccc;
+}
+
+.btn-animate.twitch.is-live {
+    border-color: #ff0055;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+}
+
+.btn-animate.twitch.is-live:hover {
+    background: #ff0055;
+}
+
+.btn-animate.twitch.is-live .badge-status {
+    background: #ff0055;
+    color: #fff;
+    animation: pulseLive 1.5s infinite;
+}
+
+@keyframes pulseLive {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-detail {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: none;
+    font-weight: 500;
+}
+
+/* ICONO SVG DE ITERO */
 .itero-icon {
     width: 20px;
     height: 20px;
-    color: #ffcc00; /* Mismo amarillo/dorado que Kick, Twitch, etc. */
+    color: #ffcc00;
     vertical-align: middle;
     transition: color 0.3s ease;
 }
 
-/* Al pasar el mouse cambia a blanco puro */
 .btn-animate:hover .itero-icon {
     color: #ffffff;
+}
+
+/* --- REPRODUCTOR DE MÚSICA ESTILO REFERENCIA --- */
+.music-player-card {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 520px;
+    background: rgba(8, 14, 26, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 208, 255, 0.3);
+    box-shadow: 0 0 25px rgba(0, 208, 255, 0.15);
+    border-radius: 16px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 100;
+}
+
+.music-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 130px;
+}
+
+.song-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden; /* Corta los bordes de la imagen para respetar el border-radius */
+    box-shadow: 0 0 10px rgba(0, 208, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.song-cover .cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    display: block;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+}
+
+.song-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+}
+
+/* Barra de tiempo y progreso */
+.music-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.music-center input[type="range"] {
+    flex-grow: 1;
+    height: 3px;
+    accent-color: #00d0ff;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+}
+
+/* Controles de volumen y botones */
+.music-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #00d0ff;
+    font-size: 0.85rem;
+}
+
+.volume-slider {
+    width: 45px;
+    height: 3px;
+    accent-color: #00d0ff;
+    cursor: pointer;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ctrl-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 4px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ctrl-btn:hover {
+    color: #00d0ff;
+    transform: scale(1.1);
+}
+
+.play-btn {
+    width: 32px;
+    height: 32px;
+    background: #00d0ff;
+    border-radius: 50%;
+    color: #040810;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 208, 255, 0.5);
+}
+
+.play-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: scale(1.08);
 }

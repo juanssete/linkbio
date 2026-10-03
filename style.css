@@ -329,19 +329,6 @@ body {
     font-weight: 500;
 }
 
-/* ICONO SVG DE ITERO */
-.itero-icon {
-    width: 20px;
-    height: 20px;
-    color: #ffcc00;
-    vertical-align: middle;
-    transition: color 0.3s ease;
-}
-
-.btn-animate:hover .itero-icon {
-    color: #ffffff;
-}
-
 /* --- REPRODUCTOR DE MÚSICA ESTILO REFERENCIA --- */
 .music-player-card {
     position: fixed;

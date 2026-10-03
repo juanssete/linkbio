@@ -26,29 +26,43 @@
             <span class="badge">CHALLENGER CON ZAC, HIERRO CON LOS DEMÁS CAMPEONES</span>
         </header>
 
+        <div class="location-tag">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Colombia</span>
+        </div>
+
         <div class="video-section">
             <div class="video-container">
                 <iframe id="yt-player" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-         <!-- Botón de Descarga Itero -->
-         <a href="https://www.itero.gg/?utm_source=Juansete" target="_blank" class="btn-animate itero">
-               <div class="laser-shine"></div>
-               <svg class="itero-icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-        <!-- Corona superior -->
-               <path fill="currentColor" d="M127 21 L100 47 L117 72 C118 78 112 88 101 92 C88 92 78 76 78 69 L32 51 L65 127 L189 127 L223 50 L178 69 C176 76 166 92 153 92 C142 88 136 78 137 72 L154 47 Z"/>
-        <!-- Semicírculo / Sonrisa inferior -->
-               <path fill="currentColor" d="M32 149 C45 195 85 223 128 223 C171 223 211 195 224 149 L180 149 C168 174 146 188 128 188 C110 188 88 174 76 149 Z"/>
-              </svg>
-              <span>DESCARGA ITERO</span>
-         </a>
-            
+
+        <!-- Botón de Descarga Itero -->
+        <a href="https://www.itero.gg/?utm_source=Juansete" target="_blank" class="btn-animate itero">
+            <div class="laser-shine"></div>
+            <svg class="itero-icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corona superior -->
+                <path fill="currentColor" d="M127 21 L100 47 L117 72 C118 78 112 88 101 92 C88 92 78 76 78 69 L32 51 L65 127 L189 127 L223 50 L178 69 C176 76 166 92 153 92 C142 88 136 78 137 72 L154 47 Z"/>
+                <!-- Semicírculo / Sonrisa inferior -->
+                <path fill="currentColor" d="M32 149 C45 195 85 223 128 223 C171 223 211 195 224 149 L180 149 C168 174 146 188 128 188 C110 188 88 174 76 149 Z"/>
+            </svg>
+            <span>DESCARGA ITERO</span>
+        </a>
+
         <div class="action-links">
-            <a href="https://twitch.tv/juanssete" class="btn-animate twitch" target="_blank">
+            <!-- BOTÓN TWITCH CON ESTADO DINÁMICO -->
+            <a href="https://www.twitch.tv/juanssete" target="_blank" id="twitch-btn" class="btn-animate twitch offline">
                 <div class="laser-shine"></div>
-                <i class="fab fa-twitch"></i>
-                <span>En Vivo en Twitch</span>
+                <div class="twitch-status-wrapper">
+                    <div class="twitch-header">
+                        <i class="fab fa-twitch"></i>
+                        <span id="twitch-status-title">TWITCH</span>
+                        <span id="live-badge" class="badge-status">OFFLINE</span>
+                    </div>
+                    <span id="twitch-status-detail" class="status-detail">Cargando estado...</span>
+                </div>
             </a>
+            
             <a href="https://www.instagram.com/juanssete/" class="btn-animate instagram" target="_blank">
                 <div class="laser-shine"></div>
                 <i class="fab fa-instagram"></i>
@@ -79,6 +93,45 @@
                 <i class="fas fa-envelope"></i>
                 <span>CORREO DE CONTACTO</span>
             </a>
+
+            <!-- CONTADOR DE VISITAS -->
+            <div class="views-counter">
+                <i class="fas fa-eye"></i>
+                <span>Visitas: <strong id="visit-count">...</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- REPRODUCTOR DE MÚSICA FLOTANTE (URL MP3 DIRECTO) -->
+    <div class="music-player-card">
+        <audio id="bg-music" src="cancion.mp3" preload="metadata"></audio>
+
+        <div class="music-left">
+           <div class="song-cover">
+    <img src="coldplay.jpg" alt="Coldplay" class="cover-img">
+           </div>
+            <div class="song-info">
+                <span class="song-title">Hymn for the...</span>
+                <span class="song-artist">Coldplay ft. Beyoncé</span>
+            </div>
+        </div>
+
+        <div class="music-center">
+            <span id="current-time">0:00</span>
+            <input type="range" id="seek-bar" value="0" min="0" max="100">
+            <span id="total-duration">4:18</span>
+        </div>
+
+        <div class="music-right">
+            <div class="volume-container">
+                <i class="fas fa-volume-up" id="volume-icon"></i>
+                <input type="range" id="volume-bar" value="80" min="0" max="100" class="volume-slider">
+            </div>
+            <div class="player-controls">
+                <button class="ctrl-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button class="ctrl-btn play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i></button>
+                <button class="ctrl-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+            </div>
         </div>
     </div>
 

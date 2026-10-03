@@ -335,38 +335,39 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 520px;
+    width: 100%;
+    max-width: 480px; /* Ancho igual o equivalente al de tu main-card */
     background: rgba(8, 14, 26, 0.95);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 208, 255, 0.3);
+    border: 1px solid rgba(0, 208, 255, 0.4);
     border-bottom: none;
     border-radius: 16px 16px 0 0;
-    padding: 12px 18px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     z-index: 9999;
+    box-sizing: border-box;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Pestaña flotante para abrir/cerrar */
+/* Pestaña flotante posicionada arriba del reproductor */
 .toggle-player-btn {
     position: absolute;
-    top: -30px;
+    top: -28px;
     right: 20px;
     background: rgba(8, 14, 26, 0.95);
-    border: 1px solid rgba(0, 208, 255, 0.3);
+    border: 1px solid rgba(0, 208, 255, 0.4);
     border-bottom: none;
     color: #00d0ff;
-    padding: 5px 14px;
-    border-radius: 10px 10px 0 0;
+    padding: 4px 12px;
+    border-radius: 8px 8px 0 0;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
+    gap: 6px;
+    font-size: 0.8rem;
     box-shadow: 0 -4px 10px rgba(0, 208, 255, 0.15);
 }
 
@@ -374,7 +375,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Estado oculto: Guarda el reproductor abajo dejando solo la pestaña visible */
+/* Estado oculto: Se desliza hacia abajo */
 .music-player-card.collapsed {
     transform: translate(-50%, 100%);
 }
@@ -383,19 +384,21 @@ body {
     transform: rotate(180deg);
 }
 
+/* Sección izquierda: Portada y títulos */
 .music-left {
     display: flex;
     align-items: center;
     gap: 10px;
-    min-width: 130px;
+    min-width: 120px;
+    max-width: 150px;
 }
 
 .song-cover {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 208, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 208, 255, 0.4);
     flex-shrink: 0;
 }
 
@@ -409,12 +412,11 @@ body {
 .song-info {
     display: flex;
     flex-direction: column;
-    text-align: left;
     overflow: hidden;
 }
 
 .song-title {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     color: #ffffff;
     white-space: nowrap;
@@ -423,20 +425,21 @@ body {
 }
 
 .song-artist {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     color: rgba(255, 255, 255, 0.5);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Barra de tiempo y progreso */
+/* Sección central: Barra de reproducción */
 .music-center {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex-grow: 1;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.7);
-    font-weight: 500;
 }
 
 .music-center input[type="range"] {
@@ -448,23 +451,23 @@ body {
     border-radius: 2px;
 }
 
-/* Controles de volumen y botones */
+/* Sección derecha: Controles y volumen */
 .music-right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .volume-container {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     color: #00d0ff;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .volume-slider {
-    width: 45px;
+    width: 40px;
     height: 3px;
     accent-color: #00d0ff;
     cursor: pointer;
@@ -473,7 +476,7 @@ body {
 .player-controls {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
 }
 
 .ctrl-btn {
@@ -481,7 +484,7 @@ body {
     border: none;
     color: #ffffff;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     padding: 4px;
     transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -492,8 +495,8 @@ body {
 }
 
 .play-btn {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     background: #00d0ff;
     border-radius: 50%;
     color: #040810;
@@ -501,7 +504,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
-    box-shadow: 0 0 10px rgba(0, 208, 255, 0.5);
+    box-shadow: 0 0 8px rgba(0, 208, 255, 0.5);
 }
 
 .play-btn:hover {
@@ -510,61 +513,14 @@ body {
     transform: scale(1.08);
 }
 
-/* --- ADAPTACIÓN RESPONSIVE PARA CELULARES --- */
-@media (max-width: 600px) {
+/* --- ADAPTACIÓN MOVIL --- */
+@media (max-width: 520px) {
     .music-player-card {
-        width: 95%;
-        padding: 12px 16px;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        width: 92%;
+        padding: 10px 14px;
     }
-
-    .toggle-player-btn {
-        right: 15px;
-    }
-
-    .music-left {
-        width: 100%;
-        justify-content: flex-start;
-        min-width: auto;
-    }
-
-    .song-title {
-        max-width: 200px;
-        font-size: 0.85rem;
-    }
-
-    .music-center {
-        display: flex;
-        width: 100%;
-        gap: 8px;
-        font-size: 0.72rem;
-    }
-
-    .music-center input[type="range"] {
-        height: 4px;
-    }
-
-    .music-right {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .player-controls {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .play-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 0.95rem;
-    }
-
-    .volume-container,
-    #prev-btn,
-    #next-btn {
-        display: none;
+    
+    .volume-container {
+        display: none; /* Oculta el control de volumen en móviles para ahorrar espacio */
     }
 }

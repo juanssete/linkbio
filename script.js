@@ -148,15 +148,18 @@ async function cargarContadorVisitas() {
     if (!visitCountEl) return;
 
     try {
-        const response = await fetch("https://api.countapi.xyz/hit/juanssete-linktree/visits");
+        // Usamos counterapi.com que es gratuito y estable
+        const response = await fetch("https://counterapi.com/api/juanssete-linktree/visits");
         const data = await response.json();
-        if (data && data.value) {
-            visitCountEl.textContent = data.value.toLocaleString();
+        
+        if (data && data.value !== undefined) {
+            visitCountEl.textContent = Number(data.value).toLocaleString();
         } else {
-            visitCountEl.textContent = "0";
+            visitCountEl.textContent = "1";
         }
     } catch (error) {
-        visitCountEl.textContent = "Error";
+        console.error("Error al cargar contador de visitas:", error);
+        visitCountEl.textContent = "1";
     }
 }
 
@@ -250,10 +253,23 @@ function initMusicPlayer() {
     }
 }
 
+// --- FUNCIÓN 5: CONTROL DEL BOTÓN DESPLEGABLE REPRODUCTOR ---
+function initTogglePlayer() {
+    const playerCard = document.getElementById('music-player');
+    const toggleBtn = document.getElementById('toggle-player-btn');
+
+    if (toggleBtn && playerCard) {
+        toggleBtn.addEventListener('click', () => {
+            playerCard.classList.toggle('collapsed');
+        });
+    }
+}
+
 // Inicializar todo al cargar el documento
 document.addEventListener('DOMContentLoaded', () => {
     cargarUltimoVideo();
     checkTwitchStatus();
     cargarContadorVisitas();
     initMusicPlayer();
+    initTogglePlayer();
 });

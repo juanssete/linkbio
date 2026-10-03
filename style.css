@@ -489,16 +489,16 @@ body {
 }
 
 
-/* --- VISTA CELULAR (MENOR A 600px): 2 FILAS --- */
+/* --- VISTA CELULAR (MENOR A 600px): 2 FILAS PERFECTAMENTE CENTRADAS --- */
 @media (max-width: 600px) {
     .music-player-card {
-        width: 90%;
+        width: 92%;
         max-width: 480px;
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: auto auto;
-        gap: 8px 10px;
-        padding: 10px 14px;
+        gap: 10px 12px;
+        padding: 12px 14px;
     }
 
     .music-left {
@@ -514,16 +514,34 @@ body {
     .music-right {
         grid-column: 1 / -1;
         grid-row: 2;
-        justify-content: space-between;
-        padding-top: 2px;
+        position: relative; /* Base para el volumen absoluto */
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centra los controles de reproducción al 100% */
+        width: 100%;
+        padding-top: 4px;
     }
 
     .player-controls {
-        gap: 16px;
-        margin: 0 auto; /* Centra los controles de reproducción abajo */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin: 0 auto;
+    }
+
+    /* El volumen se ancla a la izquierda sin afectar al centro */
+    .volume-container {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        gap: 4px;
     }
 
     .volume-slider {
-        width: 55px;
+        width: 50px;
     }
 }

@@ -249,13 +249,14 @@ body {
 }
 
 /* DESFASE DE ANIMACIÓN DEL BRILLO LÁSER */
-.twitch .laser-shine { animation-delay: 0s; }
-.instagram .laser-shine { animation-delay: 1s; }
-.tiktok .laser-shine { animation-delay: 2s; }
-.whatsapp .laser-shine { animation-delay: 3s; }
-.facebook .laser-shine { animation-delay: 4s; }
-.kick .laser-shine { animation-delay: 5s; }
-.correo .laser-shine { animation-delay: 6s; }
+.itero .laser-shine { animation-delay: 0s; }
+.twitch .laser-shine { animation-delay: 1s; }
+.instagram .laser-shine { animation-delay: 2s; }
+.tiktok .laser-shine { animation-delay: 3s; }
+.whatsapp .laser-shine { animation-delay: 4s; }
+.facebook .laser-shine { animation-delay: 5s; }
+.kick .laser-shine { animation-delay: 6s; }
+.correo .laser-shine { animation-delay: 7s; }
 
 @keyframes shinePass {
     0% { left: -100%; }
@@ -321,7 +322,18 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+/* ICONO SVG DE ITERO */
+.itero-icon {
+    width: 20px;
+    height: 20px;
+    color: #ffcc00;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
 
+.btn-animate:hover .itero-icon {
+    color: #ffffff;
+}
 .status-detail {
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.6);

@@ -255,8 +255,9 @@ body {
 .tiktok .laser-shine { animation-delay: 3s; }
 .whatsapp .laser-shine { animation-delay: 4s; }
 .facebook .laser-shine { animation-delay: 5s; }
-.kick .laser-shine { animation-delay: 6s; }
-.correo .laser-shine { animation-delay: 7s; }
+.twitter .laser-shine { animation-delay: 6s; }
+.kick .laser-shine { animation-delay: 7s; }
+.correo .laser-shine { animation-delay: 8s; }
 
 @keyframes shinePass {
     0% { left: -100%; }

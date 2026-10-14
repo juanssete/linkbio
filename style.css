@@ -255,8 +255,8 @@ body {
 .tiktok .laser-shine { animation-delay: 3s; }
 .whatsapp .laser-shine { animation-delay: 4s; }
 .facebook .laser-shine { animation-delay: 5s; }
-.twitter .laser-shine { animation-delay: 6s; }
-.kick .laser-shine { animation-delay: 7s; }
+.kick .laser-shine { animation-delay: 6s; }
+.twitter .laser-shine { animation-delay: 7s; }
 .correo .laser-shine { animation-delay: 8s; }
 
 @keyframes shinePass {
@@ -323,6 +323,7 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+
 /* ICONO SVG DE ITERO */
 .itero-icon {
     width: 20px;
@@ -335,6 +336,7 @@ body {
 .btn-animate:hover .itero-icon {
     color: #ffffff;
 }
+
 .status-detail {
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.6);
@@ -501,36 +503,56 @@ body {
     cursor: pointer;
 }
 
-
-/* --- VISTA CELULAR (MENOR A 600px): 2 FILAS PERFECTAMENTE CENTRADAS --- */
-@media (max-width: 600px) {
+/* --- VISTA MÓVIL Y TABLET (MENOR A 768px): 2 FILAS OPTIMIZADAS --- */
+@media (max-width: 768px) {
     .music-player-card {
         width: 92%;
         max-width: 480px;
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 110px 1fr;
         grid-template-rows: auto auto;
-        gap: 10px 12px;
+        gap: 8px 10px;
         padding: 12px 14px;
     }
 
     .music-left {
         grid-column: 1;
         grid-row: 1;
+        width: 100%;
+        max-width: 110px;
+        overflow: hidden;
     }
 
     .music-center {
         grid-column: 2;
         grid-row: 1;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+        min-width: 0;
+        padding-right: 4px;
+    }
+
+    .music-center input[type="range"] {
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+    }
+
+    #current-time, #total-duration {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-size: 0.68rem;
     }
 
     .music-right {
         grid-column: 1 / -1;
         grid-row: 2;
-        position: relative; /* Base para el volumen absoluto */
+        position: relative;
         display: flex;
         align-items: center;
-        justify-content: center; /* Centra los controles de reproducción al 100% */
+        justify-content: center;
         width: 100%;
         padding-top: 4px;
     }
@@ -543,7 +565,6 @@ body {
         margin: 0 auto;
     }
 
-    /* El volumen se ancla a la izquierda sin afectar al centro */
     .volume-container {
         position: absolute;
         left: 0;
@@ -555,6 +576,6 @@ body {
     }
 
     .volume-slider {
-        width: 50px;
+        width: 45px;
     }
 }
